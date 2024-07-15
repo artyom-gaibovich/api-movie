@@ -3,7 +3,7 @@ import {
 	Controller,
 	Delete,
 	Get,
-	HttpCode,
+	HttpCode, Logger,
 	NotFoundException,
 	Param,
 	Patch,
@@ -18,6 +18,7 @@ import { FindMovieDto } from './dto/find-movie.dto';
 import { MOVIE_NOT_FOUND_ERROR } from './movie.constants';
 import { MovieModel } from './movie.model';
 import { MovieService } from './movie.service';
+import {ReviewController} from "../review/review.controller";
 
 @Controller('movie')
 export class MovieController {
