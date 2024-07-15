@@ -23,12 +23,7 @@ POST /movie/create
   "title": "string",
   "link": "string",
   "initialRating": 1,
-  "price": 1,
-  "oldPrice": 1,
-  "credit": 1,
   "description": "string",
-  "advantages": "string",
-  "disAdvantages": "string",
   "categories": ["string"],
   "tags": ["string"],
   "characteristics": [
@@ -47,12 +42,7 @@ POST /movie/create
   "title": "string",
   "link": "string",
   "initialRating": 1,
-  "price": 1,
-  "oldPrice": 1,
-  "credit": 1,
   "description": "string",
-  "advantages": "string",
-  "disAdvantages": "string",
   "categories": ["string"],
   "tags": ["string"],
   "characteristics": [
@@ -75,34 +65,28 @@ GET /movie/:id
 
 Параметры
 
-    id: string (параметр пути) - ID фильма.
+* id: string (параметр пути) - ID фильма.
 
 Ответ
 
 ```json
 {
-    "id": "string",
-    "image": "string",
-    "title": "string",
-    "link": "string",
-    "initialRating": 1,
-    "price": 1,
-    "oldPrice": 1,
-    "credit": 1,
-    "description": "string",
-    "advantages": "string",
-    "disAdvantages": "string",
-    "categories": ["string"],
-    "tags": ["string"],
-    "characteristics": [
-    {
-    "name": "string",
-    "value": "string"
-    }
-    ],
-    "createdAt": "date",
-    "updatedAt": "date"
-    }
+  "id": "string",
+  "image": "string",
+  "title": "string",
+  "link": "string",
+  "initialRating": 1,
+  "description": "string",
+  "categories": ["string"],
+  "tags": ["string"],
+  "characteristics": [
+  {
+  "name": "string",
+  "value": "string"
+  }],
+  "createdAt": "date",
+  "updatedAt": "date"
+  }
 ```
 Удалить фильм по ID
 
@@ -116,8 +100,8 @@ DELETE /movie/:id
 Параметры
 * id: string (параметр пути) - ID фильма.
 Ответ
-* Статус код: 204 Нет содержимого
-Ошибки
+  * Статус код: 204 Нет содержимого
+  Ошибки
 ```json
 {
   "statusCode": 404,
@@ -141,52 +125,40 @@ PATCH /movie/:id
 Тело запроса
 
 ```json
-{
-"image": "string",
-"title": "string",
-"link": "string",
-"initialRating": 1,
-"price": 1,
-"oldPrice": 1,
-"credit": 1,
-"description": "string",
-"advantages": "string",
-"disAdvantages": "string",
-"categories": ["string"],
-"tags": ["string"],
-"characteristics": [
-{
-"name": "string",
-"value": "string"
-}
-]
+  {
+  "image": "string",
+  "title": "string",
+  "link": "string",
+  "initialRating": 1,
+  "description": "string",
+  "categories": ["string"],
+  "tags": ["string"],
+  "characteristics": [
+  {
+  "name": "string",
+  "value": "string"
+  }]
 }
 ```
 Ответ
 
 ```json
 {
-"id": "string",
-"image": "string",
-"title": "string",
-"link": "string",
-"initialRating": 1,
-"price": 1,
-"oldPrice": 1,
-"credit": 1,
-"description": "string",
-"advantages": "string",
-"disAdvantages": "string",
-"categories": ["string"],
-"tags": ["string"],
-"characteristics": [
-{
-"name": "string",
-"value": "string"
-}
-],
-"createdAt": "date",
-"updatedAt": "date"
+  "id": "string",
+  "image": "string",
+  "title": "string",
+  "link": "string",
+  "initialRating": 1,
+  "description": "string",
+  "categories": ["string"],
+  "tags": ["string"],
+  "characteristics": [
+  {
+  "name": "string",
+  "value": "string"
+  }],
+  "createdAt": "date",
+  "updatedAt": "date"
 }
 ```
 Найти фильмы
@@ -203,38 +175,30 @@ POST /movie/find
 
 ```json
 {
-"category": "string",
-"limit": 1
+  "category": "string",
+  "limit": 1
 }
 ```
 Ответ
 
 ```json
-[
 {
-"id": "string",
-"image": "string",
-"title": "string",
-"link": "string",
-"initialRating": 1,
-"price": 1,
-"oldPrice": 1,
-"credit": 1,
-"description": "string",
-"advantages": "string",
-"disAdvantages": "string",
-"categories": ["string"],
-"tags": ["string"],
-"characteristics": [
-{
-"name": "string",
-"value": "string"
+  "id": "string",
+  "image": "string",
+  "title": "string",
+  "link": "string",
+  "initialRating": 1,
+  "description": "string",
+  "categories": ["string"],
+  "tags": ["string"],
+  "characteristics": [
+  {
+  "name": "string",
+  "value": "string"
+  }],
+  "createdAt": "date",
+  "updatedAt": "date"
 }
-],
-"createdAt": "date",
-"updatedAt": "date"
-}
-]
 ```
 
 
@@ -253,61 +217,35 @@ POST /top-page/create
 
 ```json
 {
-"firstCategory": "string",
-"secondCategory": "string",
-"alias": "string",
-"title": "string",
-"metaTitle": "string",
-"metaDescription": "string",
-"category": "string",
-"hh": {
-"count": 1,
-"juniorSalary": 1,
-"middleSalary": 1,
-"seniorSalary": 1,
-"updatedAt": "date"
-},
-"advantages": [
-{
-"title": "string",
-"description": "string"
-}
-],
-"seoText": "string",
-"tagsTitle": "string",
-"tags": ["string"]
+  "firstCategory": "string",
+  "secondCategory": "string",
+  "alias": "string",
+  "title": "string",
+  "metaTitle": "string",
+  "metaDescription": "string",
+  "category": "string",
+  "seoText": "string",
+  "tagsTitle": "string",
+  "tags": ["string"]
 }
 ```
 Ответ
 
 ```json
 {
-"id": "string",
-"firstCategory": "string",
-"secondCategory": "string",
-"alias": "string",
-"title": "string",
-"metaTitle": "string",
-"metaDescription": "string",
-"category": "string",
-"hh": {
-"count": 1,
-"juniorSalary": 1,
-"middleSalary": 1,
-"seniorSalary": 1,
-"updatedAt": "date"
-},
-"advantages": [
-{
-"title": "string",
-"description": "string"
-}
-],
-"seoText": "string",
-"tagsTitle": "string",
-"tags": ["string"],
-"createdAt": "date",
-"updatedAt": "date"
+  "id": "string",
+  "firstCategory": "string",
+  "secondCategory": "string",
+  "alias": "string",
+  "title": "string",
+  "metaTitle": "string",
+  "metaDescription": "string",
+  "category": "string",
+  "seoText": "string",
+  "tagsTitle": "string",
+  "tags": ["string"],
+  "createdAt": "date",
+  "updatedAt": "date"
 }
 ```
 Получить страницу по ID
@@ -329,33 +267,20 @@ GET /top-page/:id
 
 
 ```json
-{
-"id": "string",
-"firstCategory": "string",
-"secondCategory": "string",
-"alias": "string",
-"title": "string",
-"metaTitle": "string",
-"metaDescription": "string",
-"category": "string",
-"hh": {
-"count": 1,
-"juniorSalary": 1,
-"middleSalary": 1,
-"seniorSalary": 1,
-"updatedAt": "date"
-},
-"advantages": [
-{
-"title": "string",
-"description": "string"
-}
-],
-"seoText": "string",
-"tagsTitle": "string",
-"tags": ["string"],
-"createdAt": "date",
-"updatedAt": "date"
+  {
+  "id": "string",
+  "firstCategory": "string",
+  "secondCategory": "string",
+  "alias": "string",
+  "title": "string",
+  "metaTitle": "string",
+  "metaDescription": "string",
+  "category": "string",
+  "seoText": "string",
+  "tagsTitle": "string",
+  "tags": ["string"],
+  "createdAt": "date",
+  "updatedAt": "date"
 }
 ```
 Получить страницу по алиасу
@@ -378,32 +303,19 @@ GET /top-page/byAlias/:alias
 
 ```json
 {
-"id": "string",
-"firstCategory": "string",
-"secondCategory": "string",
-"alias": "string",
-"title": "string",
-"metaTitle": "string",
-"metaDescription": "string",
-"category": "string",
-"hh": {
-"count": 1,
-"juniorSalary": 1,
-"middleSalary": 1,
-"seniorSalary": 1,
-"updatedAt": "date"
-},
-"advantages": [
-{
-"title": "string",
-"description": "string"
-}
-],
-"seoText": "string",
-"tagsTitle": "string",
-"tags": ["string"],
-"createdAt": "date",
-"updatedAt": "date"
+  "id": "string",
+  "firstCategory": "string",
+  "secondCategory": "string",
+  "alias": "string",
+  "title": "string",
+  "metaTitle": "string",
+  "metaDescription": "string",
+  "category": "string",
+  "seoText": "string",
+  "tagsTitle": "string",
+  "tags": ["string"],
+  "createdAt": "date",
+  "updatedAt": "date"
 }
 ```
 Удалить страницу по ID
@@ -428,9 +340,9 @@ DELETE /top-page/:id
 
 ```json
 {
-"statusCode": 404,
-"message": "Страница не найдена",
-"error": "Not Found"
+  "statusCode": 404,
+  "message": "Страница не найдена",
+  "error": "Not Found"
 }
 ```
 Обновить страницу по ID
@@ -451,29 +363,16 @@ PATCH /top-page/:id
 
 ```json
 {
-"firstCategory": "string",
-"secondCategory": "string",
-"alias": "string",
-"title": "string",
-"metaTitle": "string",
-"metaDescription": "string",
-"category": "string",
-"hh": {
-"count": 1,
-"juniorSalary": 1,
-"middleSalary": 1,
-"seniorSalary": 1,
-"updatedAt": "date"
-},
-"advantages": [
-{
-"title": "string",
-"description": "string"
-}
-],
-"seoText": "string",
-"tagsTitle": "string",
-"tags": ["string"]
+  "firstCategory": "string",
+  "secondCategory": "string",
+  "alias": "string",
+  "title": "string",
+  "metaTitle": "string",
+  "metaDescription": "string",
+  "category": "string",
+  "seoText": "string",
+  "tagsTitle": "string",
+  "tags": ["string"]
 }
 ```
 Ответ
@@ -481,32 +380,19 @@ PATCH /top-page/:id
 
 ```json
 {
-"id": "string",
-"firstCategory": "string",
-"secondCategory": "string",
-"alias": "string",
-"title": "string",
-"metaTitle": "string",
-"metaDescription": "string",
-"category": "string",
-"hh": {
-"count": 1,
-"juniorSalary": 1,
-"middleSalary": 1,
-"seniorSalary": 1,
-"updatedAt": "date"
-},
-"advantages": [
-{
-"title": "string",
-"description": "string"
-}
-],
-"seoText": "string",
-"tagsTitle": "string",
-"tags": ["string"],
-"createdAt": "date",
-"updatedAt": "date"
+  "id": "string",
+  "firstCategory": "string",
+  "secondCategory": "string",
+  "alias": "string",
+  "title": "string",
+  "metaTitle": "string",
+  "metaDescription": "string",
+  "category": "string",
+  "seoText": "string",
+  "tagsTitle": "string",
+  "tags": ["string"],
+  "createdAt": "date",
+  "updatedAt": "date"
 }
 ```
 Найти страницы
@@ -523,7 +409,7 @@ POST /top-page/find
 
 ```json
 {
-"firstCategory": "string"
+  "firstCategory": "string"
 }
 ```
 
@@ -532,32 +418,19 @@ POST /top-page/find
 ```json
 [
 {
-"id": "string",
-"firstCategory": "string",
-"secondCategory": "string",
-"alias": "string",
-"title": "string",
-"metaTitle": "string",
-"metaDescription": "string",
-"category": "string",
-"hh": {
-"count": 1,
-"juniorSalary": 1,
-"middleSalary": 1,
-"seniorSalary": 1,
-"updatedAt": "date"
-},
-"advantages": [
-{
-"title": "string",
-"description": "string"
-}
-],
-"seoText": "string",
-"tagsTitle": "string",
-"tags": ["string"],
-"createdAt": "date",
-"updatedAt": "date"
+    "id": "string",
+    "firstCategory": "string",
+    "secondCategory": "string",
+    "alias": "string",
+    "title": "string",
+    "metaTitle": "string",
+    "metaDescription": "string",
+    "category": "string",
+    "seoText": "string",
+    "tagsTitle": "string",
+    "tags": ["string"],
+    "createdAt": "date",
+    "updatedAt": "date"
 }
 ]
 ```
@@ -578,36 +451,21 @@ GET /top-page/textSearch/:text
 Ответ
 
 ```json
-[
 {
-"id": "string",
-"firstCategory": "string",
-"secondCategory": "string",
-"alias": "string",
-"title": "string",
-"metaTitle": "string",
-"metaDescription": "string",
-"category": "string",
-"hh": {
-"count": 1,
-"juniorSalary": 1,
-"middleSalary": 1,
-"seniorSalary": 1,
-"updatedAt": "date"
-},
-"advantages": [
-{
-"title": "string",
-"description": "string"
+  "id": "string",
+  "firstCategory": "string",
+  "secondCategory": "string",
+  "alias": "string",
+  "title": "string",
+  "metaTitle": "string",
+  "metaDescription": "string",
+  "category": "string",
+  "seoText": "string",
+  "tagsTitle": "string",
+  "tags": ["string"],
+  "createdAt": "date",
+  "updatedAt": "date"
 }
-],
-"seoText": "string",
-"tagsTitle": "string",
-"tags": ["string"],
-"createdAt": "date",
-"updatedAt": "date"
-}
-]
 ```
 💬 Модуль Отзывов
 Создать отзыв
@@ -624,25 +482,25 @@ POST /review/create
 
 ```json
 {
-"name": "string",
-"title": "string",
-"description": "string",
-"rating": 1,
-"movieId": "string"
+  "name": "string",
+  "title": "string",
+  "description": "string",
+  "rating": 1,
+  "movieId": "string"
 }
 ```
 Ответ
 
 ```json
 {
-"id": "string",
-"name": "string",
-"title": "string",
-"description": "string",
-"rating": 1,
-"movieId": "string",
-"createdAt": "date",
-"updatedAt": "date"
+  "id": "string",
+  "name": "string",
+  "title": "string",
+  "description": "string",
+  "rating": 1,
+  "movieId": "string",
+  "createdAt": "date",
+  "updatedAt": "date"
 }
 ```
 Уведомление об отзыве
@@ -660,11 +518,11 @@ POST /review/notify
 
 ```json
 {
-"name": "string",
-"title": "string",
-"description": "string",
-"rating": 1,
-"movieId": "string"
+  "name": "string",
+  "title": "string",
+  "description": "string",
+  "rating": 1,
+  "movieId": "string"
 }
 ```
 Ответ
@@ -694,9 +552,9 @@ DELETE /review/:id
 
 ```json
 {
-"statusCode": 404,
-"message": "Отзыв не найден",
-"error": "Not Found"
+  "statusCode": 404,
+  "message": "Отзыв не найден",
+  "error": "Not Found"
 }
 ```
 Получить отзывы по ID фильма
@@ -720,14 +578,14 @@ GET /review/byMovie/:movieId
 ```json
 [
 {
-"id": "string",
-"name": "string",
-"title": "string",
-"description": "string",
-"rating": 1,
-"movieId": "string",
-"createdAt": "date",
-"updatedAt": "date"
+  "id": "string",
+  "name": "string",
+  "title": "string",
+  "description": "string",
+  "rating": 1,
+  "movieId": "string",
+  "createdAt": "date",
+  "updatedAt": "date"
 }
 ]
 ```
