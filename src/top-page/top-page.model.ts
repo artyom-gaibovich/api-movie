@@ -5,7 +5,7 @@ export enum TopLevelCategory {
 	Courses,
 	Services,
 	Books,
-	Products
+	Movies
 }
 
 export class HhData {
@@ -58,8 +58,6 @@ export class TopPageModel extends TimeStamps {
 	@prop()
 	category: string;
 
-	@prop({ type: () => HhData })
-	hh?: HhData;
 
 	@prop({ type: () => [TopPageAdvantage] })
 	advantages: TopPageAdvantage[];

@@ -17,11 +17,11 @@ export class ReviewService {
 		return this.reviewModel.findByIdAndDelete(id).exec();
 	}
 
-	async findByProductId(productId: string): Promise<DocumentType<ReviewModel>[]> {
-		return this.reviewModel.find({ productId: Types.ObjectId(productId) }).exec();
+	async findByMovieId(movieId: string): Promise<DocumentType<ReviewModel>[]> {
+		return this.reviewModel.find({ movieId: Types.ObjectId(movieId) }).exec();
 	}
 
-	async deleteByProductId(productId: string) {
-		return this.reviewModel.deleteMany({ productId: Types.ObjectId(productId) }).exec();
+	async deleteByMovieId(movieId: string) {
+		return this.reviewModel.deleteMany({ movieId: Types.ObjectId(movieId) }).exec();
 	}
 }

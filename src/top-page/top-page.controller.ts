@@ -14,8 +14,6 @@ import {
 	ValidationPipe
 } from '@nestjs/common';
 import { Cron, CronExpression, SchedulerRegistry } from '@nestjs/schedule';
-import { JwtAuthGuard } from 'src/auth/guards/jwt.guard';
-import { HhService } from 'src/hh/hh.service';
 import { IdValidationPipe } from 'src/pipes/ad-validation.pipe';
 import { CreateTopPageDto } from './dto/create-top-page.dto';
 import { FindTopPageDto } from './dto/find-top-page.dto';
@@ -26,18 +24,14 @@ import { TopPageService } from './top-page.service';
 export class TopPageController {
 	constructor(
 		private readonly topPageService: TopPageService,
-		private readonly hhService: HhService,
-		private readonly scheduleRegistry: SchedulerRegistry
 	) { }
 
-	@UseGuards(JwtAuthGuard)
 	@UsePipes(new ValidationPipe())
 	@Post('create')
 	async create(@Body() dto: CreateTopPageDto) {
 		return this.topPageService.create(dto);
 	}
 
-	@UseGuards(JwtAuthGuard)
 	@Get(':id')
 	async get(@Param('id', IdValidationPipe) id: string) {
 		const page = await this.topPageService.findById(id);
@@ -56,7 +50,6 @@ export class TopPageController {
 		return page;
 	}
 
-	@UseGuards(JwtAuthGuard)
 	@Delete(':id')
 	async delete(@Param('id') id: string) {
 		const detetedPage = await this.topPageService.deleteById(id);
@@ -65,7 +58,6 @@ export class TopPageController {
 		}
 	}
 
-	@UseGuards(JwtAuthGuard)
 	@UsePipes(new ValidationPipe())
 	@Patch(':id')
 	async patch(@Param('id') id: string, @Body() dto: CreateTopPageDto) {
@@ -91,9 +83,7 @@ export class TopPageController {
 	@Cron(CronExpression.EVERY_DAY_AT_MIDNIGHT)
 	async test() {
 		const data = await this.topPageService.findForHhUpdate(new Date());
-		for (let page of data) {
-			const hhData = await this.hhService.getData(page.category);
-			page.hh = hhData;
+		for (const page of data) {
 			await this.topPageService.updateById(page._id, page);
 		}
 	}

@@ -12,8 +12,6 @@ import {
 	ValidationPipe
 } from '@nestjs/common';
 import { IdValidationPipe } from 'src/pipes/ad-validation.pipe';
-import { TelegramService } from 'src/telegram/telegram.service';
-import { JwtAuthGuard } from '../auth/guards/jwt.guard';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { REVIEW_NOT_FOUND } from './review.constants';
 import { ReviewService } from './review.service';
@@ -22,7 +20,6 @@ import { ReviewService } from './review.service';
 export class ReviewController {
 	constructor(
 		private readonly reviewService: ReviewService,
-		private readonly telegramService: TelegramService
 	) { }
 
 	@UsePipes(new ValidationPipe())
@@ -38,11 +35,9 @@ export class ReviewController {
 			+ `Заголовок: ${dto.title}\n`
 			+ `Описание: ${dto.description}\n`
 			+ `Рейтинг: ${dto.rating}\n`
-			+ `ID Продукта: ${dto.productId}`;
-		return this.telegramService.sendMessage(message);
+			+ `ID Фильма: ${dto.movieId}`;
 	}
 
-	@UseGuards(JwtAuthGuard)
 	@Delete(':id')
 	async delete(@Param('id', IdValidationPipe) id: string) {
 		const deletedDoc = await this.reviewService.delete(id);
@@ -51,8 +46,8 @@ export class ReviewController {
 		}
 	}
 
-	@Get('byProduct/:productId')
-	async getByProduct(@Param('productId', IdValidationPipe) productId: string) {
-		return this.reviewService.findByProductId(productId);
+	@Get('byMovie/:movieId')
+	async getByMovie(@Param('movieId', IdValidationPipe) movieId: string) {
+		return this.reviewService.findByMovieId(movieId);
 	}
 }
