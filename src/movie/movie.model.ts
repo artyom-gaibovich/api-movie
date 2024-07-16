@@ -1,51 +1,61 @@
 import { prop } from '@typegoose/typegoose';
 import { Base, TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
 
-class MovieCharacteristic {
+class MovieReview {
 	@prop()
-	name: string;
-	@prop()
-	value: string;
+	review: string;
 }
 
 export interface MovieModel extends Base { }
 export class MovieModel extends TimeStamps {
 	@prop()
-	image: string;
-
-	@prop()
 	title: string;
 
 	@prop()
-	link: string;
-
-	@prop()
-	initialRating: number;
-
-	@prop()
-	price: number;
-
-	@prop()
-	oldPrice?: number;
-
-	@prop()
-	credit: number;
-
-	@prop()
-	description: string;
-
-	@prop()
-	advantages: string;
-
-	@prop()
-	disAdvantages?: string;
+	year: number;
 
 	@prop({ type: () => [String] })
-	categories: string[];
+	genre: string[];
+
+	@prop()
+	rating: number;
+
+	@prop()
+	director: string;
 
 	@prop({ type: () => [String] })
-	tags: string[];
+	actors: string[];
 
-	@prop({ type: () => [MovieCharacteristic], _id: false })
-	characteristics: MovieCharacteristic[];
+	@prop()
+	plot: string;
+
+	@prop()
+	poster: string;
+
+	@prop()
+	trailer: string;
+
+	@prop()
+	runtime: number;
+
+	@prop()
+	awards: string;
+
+	@prop()
+	country: string;
+
+	@prop()
+	language: string;
+
+	@prop()
+	boxOffice: string;
+
+	@prop()
+	production: string;
+
+	@prop()
+	website: string;
+
+	@prop({ type: () => [MovieReview], _id: false })
+	reviews: MovieReview[];
 }

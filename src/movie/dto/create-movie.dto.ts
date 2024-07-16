@@ -1,60 +1,66 @@
-import { Type } from 'class-transformer';
-import { IsNumber, IsString, IsOptional, ValidateNested, IsArray, Max, Min } from 'class-validator';
+import {Type} from 'class-transformer';
+import {IsArray, IsNumber, IsString, Max, Min, ValidateNested} from 'class-validator';
 
-class MovieCharacteristicDto {
+class MovieReviewDto {
 	@IsString()
-	name: string;
-
-	@IsString()
-	value: string;
+	review: string;
 }
 
 export class CreateMovieDto {
 	@IsString()
-	image: string;
-
-	@IsString()
 	title: string;
 
-	@IsString()
-	link: string;
-
-	@Max(5)
-	@Min(1)
 	@IsNumber()
-	initialRating: number;
-
-	@IsNumber()
-	price: number;
-
-	@IsOptional()
-	@IsNumber()
-	oldPrice?: number;
-
-	@IsNumber()
-	credit: number;
-
-	@IsString()
-	description: string;
-
-	@IsString()
-	advantages: string;
-
-	@IsOptional()
-	@IsString()
-	disAdvantages?: string;
+	year: number;
 
 	@IsArray()
 	@IsString({ each: true })
-	categories: string[];
+	genre: string[];
+
+	@IsNumber()
+	@Min(0)
+	@Max(10)
+	rating: number;
+
+	@IsString()
+	director: string;
 
 	@IsArray()
 	@IsString({ each: true })
-	tags: string[];
+	actors: string[];
+
+	@IsString()
+	plot: string;
+
+	@IsString()
+	poster: string;
+
+	@IsString()
+	trailer: string;
+
+	@IsNumber()
+	runtime: number;
+
+	@IsString()
+	awards: string;
+
+	@IsString()
+	country: string;
+
+	@IsString()
+	language: string;
+
+	@IsString()
+	boxOffice: string;
+
+	@IsString()
+	production: string;
+
+	@IsString()
+	website: string;
 
 	@IsArray()
 	@ValidateNested()
-	@Type(() => MovieCharacteristicDto)
-	characteristics: MovieCharacteristicDto[];
+	@Type(() => MovieReviewDto)
+	reviews: MovieReviewDto[];
 }
-
