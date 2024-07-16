@@ -16,6 +16,11 @@ export class CreateMovieDto {
 	@IsString()
 	title: string;
 
+
+	@IsArray()
+	@IsString({ each: true })
+	reviews: string[];
+
 	@IsString()
 	link: string;
 
@@ -26,6 +31,8 @@ export class CreateMovieDto {
 
 	@IsString()
 	description: string;
+
+
 
 
 	@IsOptional()
