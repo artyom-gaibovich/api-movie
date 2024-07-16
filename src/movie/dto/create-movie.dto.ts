@@ -24,21 +24,9 @@ export class CreateMovieDto {
 	@IsNumber()
 	initialRating: number;
 
-	@IsNumber()
-	price: number;
-
-	@IsOptional()
-	@IsNumber()
-	oldPrice?: number;
-
-	@IsNumber()
-	credit: number;
-
 	@IsString()
 	description: string;
 
-	@IsString()
-	advantages: string;
 
 	@IsOptional()
 	@IsString()

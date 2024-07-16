@@ -8,23 +8,6 @@ export enum TopLevelCategory {
 	Movies
 }
 
-export class HhData {
-	@prop()
-	count: number;
-
-	@prop()
-	juniorSalary: number;
-
-	@prop()
-	middleSalary: number;
-
-	@prop()
-	seniorSalary: number;
-
-	@prop()
-	updatedAt: Date;
-}
-
 export class TopPageAdvantage {
 	@prop()
 	title: string;
@@ -40,9 +23,6 @@ export class TopPageModel extends TimeStamps {
 	@prop({ enum: TopLevelCategory })
 	firstCategory: TopLevelCategory;
 
-	@prop()
-	secondCategory: string;
-
 	@prop({ unique: true })
 	alias: string;
 
@@ -57,10 +37,6 @@ export class TopPageModel extends TimeStamps {
 
 	@prop()
 	category: string;
-
-
-	@prop({ type: () => [TopPageAdvantage] })
-	advantages: TopPageAdvantage[];
 
 	@prop()
 	seoText: string;

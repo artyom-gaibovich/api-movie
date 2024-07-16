@@ -1,5 +1,6 @@
 import { prop } from '@typegoose/typegoose';
 import { Base, TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
+import {IsArray, IsString} from "class-validator";
 
 class MovieCharacteristic {
 	@prop()
@@ -16,6 +17,12 @@ export class MovieModel extends TimeStamps {
 	@prop()
 	title: string;
 
+
+	@IsArray()
+	@IsString({ each: true })
+	review: string[];
+
+
 	@prop()
 	link: string;
 
@@ -23,22 +30,7 @@ export class MovieModel extends TimeStamps {
 	initialRating: number;
 
 	@prop()
-	price: number;
-
-	@prop()
-	oldPrice?: number;
-
-	@prop()
-	credit: number;
-
-	@prop()
 	description: string;
-
-	@prop()
-	advantages: string;
-
-	@prop()
-	disAdvantages?: string;
 
 	@prop({ type: () => [String] })
 	categories: string[];
