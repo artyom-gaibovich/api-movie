@@ -3,26 +3,23 @@ import {
 	Controller,
 	Delete,
 	Get,
-	HttpCode, Logger,
+	HttpCode,
 	NotFoundException,
 	Param,
 	Patch,
 	Post,
-	UseGuards,
 	UsePipes,
 	ValidationPipe
 } from '@nestjs/common';
-import { IdValidationPipe } from 'src/pipes/ad-validation.pipe';
-import { CreateMovieDto } from './dto/create-movie.dto';
-import { FindMovieDto } from './dto/find-movie.dto';
-import { MOVIE_NOT_FOUND_ERROR } from './movie.constants';
-import { MovieModel } from './movie.model';
-import { MovieService } from './movie.service';
-import {ReviewController} from "../review/review.controller";
+import {CreateMovieDto} from './dto/create-movie.dto';
+import {FindMovieDto} from './dto/find-movie.dto';
+import {MOVIE_NOT_FOUND_ERROR} from './movie.constants';
+import {MovieService} from './movie.service';
+import {IdValidationPipe} from 'src/pipes/ad-validation.pipe';
 
 @Controller('movie')
 export class MovieController {
-	constructor(private readonly movieService: MovieService) { }
+	constructor(private readonly movieService: MovieService) {}
 
 	@Post('create')
 	async create(@Body() dto: CreateMovieDto) {
@@ -47,7 +44,7 @@ export class MovieController {
 	}
 
 	@Patch(':id')
-	async patch(@Param('id', IdValidationPipe) id: string, @Body() dto: MovieModel) {
+	async patch(@Param('id', IdValidationPipe) id: string, @Body() dto: CreateMovieDto) {
 		const updatedMovie = await this.movieService.updateById(id, dto);
 		if (!updatedMovie) {
 			throw new NotFoundException(MOVIE_NOT_FOUND_ERROR);
