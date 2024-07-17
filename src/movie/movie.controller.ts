@@ -11,11 +11,11 @@ import {
 	UsePipes,
 	ValidationPipe
 } from '@nestjs/common';
+import {IdValidationPipe} from '../pipes/ad-validation.pipe';
 import {CreateMovieDto} from './dto/create-movie.dto';
 import {FindMovieDto} from './dto/find-movie.dto';
 import {MOVIE_NOT_FOUND_ERROR} from './movie.constants';
 import {MovieService} from './movie.service';
-import {IdValidationPipe} from 'src/pipes/ad-validation.pipe';
 
 @Controller('movie')
 export class MovieController {
@@ -33,6 +33,11 @@ export class MovieController {
 			throw new NotFoundException(MOVIE_NOT_FOUND_ERROR);
 		}
 		return movie;
+	}
+
+	@Get()
+	async getAll() {
+		return this.movieService.findAll();
 	}
 
 	@Delete(':id')

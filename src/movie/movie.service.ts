@@ -3,7 +3,6 @@ import { InjectModel } from 'nestjs-typegoose';
 import { ModelType } from '@typegoose/typegoose/lib/types';
 import { CreateMovieDto } from './dto/create-movie.dto';
 import { MovieModel } from './movie.model';
-import { MOVIE_NOT_FOUND_ERROR } from './movie.constants';
 import {FindMovieDto} from "./dto/find-movie.dto";
 
 @Injectable()
@@ -29,4 +28,10 @@ export class MovieService {
 	async findWithReviews(dto: FindMovieDto): Promise<MovieModel[]> {
 		return this.movieModel.find({ ...dto }).exec();
 	}
+
+	async findAll(): Promise<MovieModel[]> {
+		return this.movieModel.find().exec();
+	}
+
+
 }
