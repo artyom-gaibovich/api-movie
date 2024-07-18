@@ -3,7 +3,9 @@ import { InjectModel } from 'nestjs-typegoose';
 import { ModelType } from '@typegoose/typegoose/lib/types';
 import { CreateMovieDto } from './dto/create-movie.dto';
 import { MovieModel } from './movie.model';
-import {FindMovieDto} from "./dto/find-movie.dto";
+import { MOVIE_NOT_FOUND_ERROR } from './movie.constants';
+import { FindMovieDto } from './dto/find-movie.dto';
+import { GetMoviesDto } from './dto/get-movies-dto';
 
 @Injectable()
 export class MovieService {
@@ -11,6 +13,10 @@ export class MovieService {
 
 	async create(dto: CreateMovieDto): Promise<MovieModel> {
 		return this.movieModel.create(dto);
+	}
+
+	async createMany(dto: CreateMovieDto[]): Promise<MovieModel[]> {
+		return this.movieModel.insertMany(dto);
 	}
 
 	async findById(id: string): Promise<MovieModel | null> {
@@ -29,9 +35,13 @@ export class MovieService {
 		return this.movieModel.find({ ...dto }).exec();
 	}
 
-	async findAll(): Promise<MovieModel[]> {
-		return this.movieModel.find().exec();
+	async findAll(dto: GetMoviesDto): Promise<MovieModel[]> {
+		const { limit = 10, page = 1 } = dto;
+		const skip = (page - 1) * limit;
+		return this.movieModel.find().skip(skip).limit(limit).exec();
 	}
 
-
+	async countAll(): Promise<number> {
+		return this.movieModel.countDocuments().exec();
+	}
 }
