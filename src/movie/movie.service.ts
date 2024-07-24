@@ -1,11 +1,10 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { InjectModel } from 'nestjs-typegoose';
-import { ModelType } from '@typegoose/typegoose/lib/types';
-import { CreateMovieDto } from './dto/create-movie.dto';
-import { MovieModel } from './movie.model';
-import { MOVIE_NOT_FOUND_ERROR } from './movie.constants';
-import { FindMovieDto } from './dto/find-movie.dto';
-import { GetMoviesDto } from './dto/get-movies-dto';
+import {Injectable} from '@nestjs/common';
+import {InjectModel} from 'nestjs-typegoose';
+import {ModelType} from '@typegoose/typegoose/lib/types';
+import {CreateMovieDto} from './dto/create-movie.dto';
+import {MovieModel} from './movie.model';
+import {FindMovieDto} from './dto/find-movie.dto';
+import {GetMoviesDto} from './dto/get-movies-dto';
 
 @Injectable()
 export class MovieService {
